@@ -1,0 +1,10 @@
+rsyslog:
+  container_name: "rsyslog"
+  restart: unless-stopped
+  image: justifiably/rsyslog
+  ports:
+    - 514:514
+    - 514:514/udp
+  volumes:
+    - /containers/rsyslog/conf.d/:/etc/rsyslog.d:ro
+    - /containers/rsyslog/log:/var/log/
